@@ -1,0 +1,32 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../JumpJump_Pure/JumpJump/Assets/MAssets/Scripts/PlayScene/CPlayer.cs">
+    <Files>
+      <File FileName="Assets/Supergood/Ad/ADS/SGUnityAD.cs" Line="13" Column="25" />
+      <File FileName="Assets/Supergood/Analytics/AnalyticsManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/SGAds/BannerAdGO.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/SGAds/InterstitialAdGO.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/Utils/UnityUtil.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/SGAds/InterstitialAdLoader.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/Utils/FileUtil.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/SGAds/SGAdsGO.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/SGAds/SGAdsConfig.cs" Line="111" Column="26" />
+      <File FileName="Assets/Supergood/Utils/Load/SimpleZipDownloader.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/SGCross.cs" Line="216" Column="55" />
+      <File FileName="Assets/Supergood/Utils/DESUtil.cs" Line="1" Column="1" />
+      <File FileName="Assets/Supergood/Mobile/Android/AndroidSupergoodLoader.cs" Line="16" Column="22" />
+      <File FileName="Assets/Supergood/Mobile/Android/AndroidSupergood.cs" Line="129" Column="4" />
+      <File FileName="Assets/Supergood/Mobile/IOS/IOSSupergoodLoader.cs" Line="12" Column="33" />
+      <File FileName="Assets/Supergood/PlatformEditor/EditorSupergoodLoader.cs" Line="18" Column="1" />
+      <File FileName="Assets/Supergood/ISupergood.cs" Line="32" Column="40" />
+      <File FileName="Assets/Supergood/SupergoodBase.cs" Line="51" Column="19" />
+      <File FileName="Assets/Supergood/Mobile/IOS/IOSSupergood.cs" Line="122" Column="1" />
+      <File FileName="Assets/Supergood/PlatformEditor/EditorSupergood.cs" Line="10" Column="58" />
+      <File FileName="../JumpJump_Pure/JumpJump/Assets/MAssets/Scripts/PlayScene/CPlayer.cs" Line="16" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
