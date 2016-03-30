@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
+using Supergood.Unity;
 
 public class TimeRecord
 {
