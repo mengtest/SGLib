@@ -1,0 +1,178 @@
+-debug
+-target:library
+-nowarn:0169
+-out:'Temp/Assembly-CSharp-Editor.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
+-r:'Library/ScriptAssemblies/Assembly-CSharp.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/TizenPlayer/UnityEditor.Tizen.Extensions.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/STVPlayer/UnityEditor.SamsungTV.Extensions.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll'
+-r:'Assets/SGLibResource/Demigiant/DOTween/Editor/DOTweenEditor.dll'
+-r:'Assets/SGLibResource/Demigiant/DOTween/DOTween46.dll'
+-r:'Assets/SGLibResource/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll'
+-r:'Assets/SGLibResource/Demigiant/DOTween/DOTween50.dll'
+-r:'Assets/SGLibResource/Demigiant/DOTween/DOTween43.dll'
+-r:'Assets/SGLibResource/Demigiant/DOTween/DOTween.dll'
+-r:'Assets/SGLibResource/Demigiant/DemiLib/DemiLib.dll'
+-r:'Assets/SGLibResource/Demigiant/DOTweenPro/DOTweenPro.dll'
+-r:'Assets/SGLibResource/Demigiant/DemiLib/Editor/DemiEditor.dll'
+-r:'Assets/SGLibResource/Supergood/Zip/SharpZipLib/net-20/ICSharpCode.SharpZipLib.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll'
+-define:UNITY_5_2_3
+-define:UNITY_5_2
+-define:UNITY_5
+-define:ENABLE_NEW_BUGREPORTER
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_4_6_FEATURES
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_FRAME_DEBUGGER
+-define:ENABLE_GENERICS
+-define:ENABLE_HOME_SCREEN
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_LIGHT_PROBES_LEGACY
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_PLUGIN_INSPECTOR
+-define:ENABLE_SHADOWS
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_RAKNET
+-define:ENABLE_UNET
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_VR
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_REFLECTION_BUFFERS
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:INCLUDE_IL2CPP
+-define:INCLUDE_DIRECTX12
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_LOCALIZATION
+-define:ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION
+-define:UNITY_STANDALONE_OSX
+-define:UNITY_STANDALONE
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_GAMECENTER
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_LOG_MIXED_STACKTRACE
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_WEBSOCKET_HOST
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_OSX
+'Assets/SGLibResource/Demigiant/DOTweenPro/Editor/DOTweenAnimationInspector.cs'
+'Assets/SGLibResource/Editor/PostBuildProcessor.cs'
+'Assets/SGLibResource/Editor/Vungle/VunglePostBuilder.cs'
+'Assets/SGLibResource/Facebook/Editor/FacebookBuild.cs'
+'Assets/SGLibResource/Facebook/Editor/FacebookPostprocess.cs'
+'Assets/SGLibResource/Facebook/Editor/FacebookSettingsEditor.cs'
+'Assets/SGLibResource/Facebook/Editor/Utility.cs'
+'Assets/SGLibResource/Facebook/Editor/android/FacebookAndroidUtil.cs'
+'Assets/SGLibResource/Facebook/Editor/android/ManifestMod.cs'
+'Assets/SGLibResource/Facebook/Editor/iOS/FixupFiles.cs'
+'Assets/SGLibResource/Facebook/Editor/iOS/PListDict.cs'
+'Assets/SGLibResource/Facebook/Editor/iOS/PListParser.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/CocoaPodHelper.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSAndroidSetupUI.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSDocsUI.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSExportPackageUI.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSIOSSetupUI.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSInstructionWindow.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSPostBuild.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSProjectSettings.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSStrings.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSUpgrader.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/GPGSUtil.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/NearbyConnectionUI.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/PlistBuddyHelper.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/xcode/Elements.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/xcode/Lexer.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/xcode/Objects.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/xcode/PBXProject.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/xcode/Parser.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/xcode/Sections.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/xcode/Serializer.cs'
+'Assets/SGLibResource/GooglePlayGames/Editor/xcode/Utils.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/Scripts/UnityAdsPackageGenerator.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/Scripts/UnityAdsPostprocessor.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXBuildFile.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXBuildPhase.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXDictionary.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXFileReference.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXGroup.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXList.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXObject.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXParser.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/PBXProject.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/XCBuildConfiguration.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/XCConfigurationList.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/XCFileOperationQueue.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/XCMod.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/XCProject.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/XCSourceFile.cs'
+'Assets/SGLibResource/Standard Assets/Editor/UnityAds/XCodeEditor/XCTarget.cs'
+'Assets/SGLibResource/Supergood/SGCustomFont/Editor/BMFontReader.cs'
+'Assets/SGLibResource/Supergood/SGCustomFont/Editor/MyFont.cs'
+'Assets/SGLibResource/Supergood/UI/Editor/SpriteTextEditor.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/GlyphInfoDrawer.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/KerningPairDrawer.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/SpriteInfoDrawer.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMP_SettingsEditor.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMP_StyleSheetEditor.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMP_UIStyleManager.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_ContextMenus.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_CreateObjectMenu.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_CreateSpriteAssetMenu.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_CreateStyleAssetMenu.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_EditorPanel.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_EditorShaderUtilities.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_EditorUtility.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_FontAssetCreatorWindow.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_FontEditor.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_FontPlugin.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_SDFMaterialEditor.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_SortingLayerHelper.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_SpriteAssetEditor.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_TextContainerEditor.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_TexturePostProcessor.cs'
+'Assets/SGLibResource/TextMesh Pro/Editor/TMPro_uiEditorPanel.cs'
+'Assets/SGLibResource/codeandweb.com/Editor/TexturePackerImporter.cs'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/2.0/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/2.0/System.Xml.Linq.dll'

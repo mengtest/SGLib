@@ -1,0 +1,3 @@
+[submodule "Assets/SGLibResource"]
+	path = Assets/SGLibResource
+	url = https://github.com/saoniankeji/SGLib.git
