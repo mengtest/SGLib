@@ -9,8 +9,8 @@ namespace Supergood.Unity.Ad
 	public class AdManager
 	{
 		private Dictionary<ADCompany,AdBase> adsAll;
-		public AdShowController adsVideoController;
-		public AdShowController adsFullController;
+		private AdShowController adsVideoController;
+		private AdShowController adsFullController;
 		private AdShowController adsBannerController;
 
 		public enum ADCompany
@@ -88,8 +88,16 @@ namespace Supergood.Unity.Ad
 			}
 		}
 
+		public bool VideoIsLoad(){
+			return adsVideoController.IsLoad ();
+		}
+
 		public void ShowVideo(){
 			adsVideoController.Show ();
+		}
+
+		public bool FullIsLoad(){
+			return adsFullController.IsLoad ();
 		}
 
 		public void ShowFull(){
