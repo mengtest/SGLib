@@ -101,7 +101,10 @@ namespace Supergood.Unity.Ad
 		}
 
 		public void ShowFull(){
-			adsFullController.Show ();
+			if (FullIsLoad())
+				adsFullController.Show ();
+			else
+				adsFullController.Load ();
 		}
 
 		public void ShowBanner(){
@@ -227,12 +230,19 @@ namespace Supergood.Unity.Ad
 				}
 			}
 
+			public void Load(){
+				foreach(AdBase adBase in adsAll){
+					adBase.load();
+				}
+			}
+
 			public bool IsLoad(){
 				foreach(AdBase adBase in adsAll){
 					if(adBase.isLoad()){
 						return true;
 					}
 				}
+
 				return false;
 			}
 
