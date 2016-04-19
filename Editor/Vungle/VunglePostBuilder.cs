@@ -36,7 +36,7 @@ public class VunglePostBuilder : MonoBehaviour
 			postBuildDirectory = pathToBuiltProject;
 
 			// grab the path to the postProcessor.py file
-			var scriptPath = Path.Combine( Application.dataPath, "Editor/Vungle/VunglePostProcessor.py" );
+			var scriptPath = Path.Combine( Application.dataPath, "SGLib/Editor/Vungle/VunglePostProcessor.py" );
 
 			// sanity check
 			if( !File.Exists( scriptPath ) )
@@ -45,7 +45,7 @@ public class VunglePostBuilder : MonoBehaviour
 				return;
 			}
 
-			var pathToNativeCodeFiles = Path.Combine( Application.dataPath, "Editor/Vungle/VungleSDK" );
+			var pathToNativeCodeFiles = Path.Combine( Application.dataPath, "SGLib/Editor/Vungle/VungleSDK" );
 
 			var args = string.Format( "\"{0}\" \"{1}\" \"{2}\"", scriptPath, pathToBuiltProject, pathToNativeCodeFiles );
 			var proc = new Process
