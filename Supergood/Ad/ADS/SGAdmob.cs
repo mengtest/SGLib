@@ -6,8 +6,10 @@ namespace Supergood.Unity.Ad
 {
 	public class SGAdmob : AdBase
 	{
-		public SGAdmob(SGAdConfig.SGAdConfigElement config,AdDelegate adDelegate): base(config,adDelegate){
+		public SGAdmob (SGAdConfig.SGAdConfigElement config, AdDelegate adDelegate): base(config,adDelegate)
+		{
 		}
+
 		string bannerId;
 		string interstitialId;
 
@@ -41,14 +43,35 @@ namespace Supergood.Unity.Ad
 			}
 		}
 		
-		public override void showBanner ()
+		public override void showBanner (SGAdPosition sgAdPosition = SGAdPosition.Bottom)
 		{
-			RequestBannerGoogle ();
+			switch (sgAdPosition) {
+			case SGAdPosition.Bottom:
+				RequestBannerGoogle (AdPosition.Bottom);
+				break;
+			case SGAdPosition.BottomLeft:
+				RequestBannerGoogle (AdPosition.BottomLeft);
+				break;
+			case SGAdPosition.BottomRight:
+				RequestBannerGoogle (AdPosition.BottomRight);
+				break;
+			case SGAdPosition.Top:
+				RequestBannerGoogle (AdPosition.Top);
+				break;
+			case SGAdPosition.TopLeft:
+				RequestBannerGoogle (AdPosition.TopLeft);
+				break;
+			case SGAdPosition.TopRight:
+				RequestBannerGoogle (AdPosition.TopRight);
+				break;
+
+			}
+
 		}
 
-		private  void RequestBannerGoogle ()
+		private  void RequestBannerGoogle (AdPosition adPosition)
 		{
-			BannerView bannerView = new BannerView (bannerId, AdSize.Banner, AdPosition.Bottom);
+			BannerView bannerView = new BannerView (bannerId, AdSize.Banner, adPosition);
 			// Create an empty ad request.
 			AdRequest request = new AdRequest.Builder ().Build ();
 			// Load the banner with the request.

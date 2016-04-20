@@ -29,7 +29,7 @@ namespace Supergood.Unity.Ad
 			AdColony.ShowVideoAd (Adzones [0]);
 		}
 
-		public override void showBanner ()
+		public override void showBanner (SGAdPosition sgAdPosition = SGAdPosition.Bottom)
 		{
 		}
 	}

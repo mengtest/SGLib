@@ -41,6 +41,8 @@ namespace Supergood.Unity.Ad
 	
 		private static AdManager _instant;
 
+		public static SGAdPosition BannerVeiwPositoin = SGAdPosition.Bottom;
+
 		protected AdManager ()
 		{
 			SGAdConfig sgAdConfig = SGAdConfig.Instant;
@@ -63,7 +65,7 @@ namespace Supergood.Unity.Ad
 				}
 			}
 
-			ShowBanner ();
+			ShowBanner (BannerVeiwPositoin);
 		}
 
 		public bool isLoad (ADCompany adCompany)
@@ -107,8 +109,8 @@ namespace Supergood.Unity.Ad
 				adsFullController.Load ();
 		}
 
-		public void ShowBanner(){
-			adsBannerController.ShowBanner();
+		public void ShowBanner(SGAdPosition sgAdPosition = SGAdPosition.Bottom){
+			adsBannerController.ShowBanner(sgAdPosition);
 		}
 
 		public static void OnEnableVungle ()
@@ -246,9 +248,9 @@ namespace Supergood.Unity.Ad
 				return false;
 			}
 
-			public void ShowBanner(){
+			public void ShowBanner(SGAdPosition sgAdPosition = SGAdPosition.Bottom){
 				if (adsAll.Count > 0) {
-					adsAll[0].showBanner();
+					adsAll[0].showBanner(sgAdPosition);
 				}
 			}
 		}

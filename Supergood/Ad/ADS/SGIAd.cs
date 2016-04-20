@@ -26,9 +26,9 @@ namespace Supergood.Unity.Ad
 			KSiAd.ShowAd ();
 		}
 
-		public override void showBanner ()
+		public override void showBanner (SGAdPosition sgAdPosition = SGAdPosition.Bottom)
 		{
-			KSiAd.showBannerView ();
+			KSiAd.showBannerView (sgAdPosition);
 		}
 	
 	}

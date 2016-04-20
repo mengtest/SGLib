@@ -25,12 +25,7 @@ using ADInterstitialAd = UnityEngine.iOS.ADInterstitialAd;
 			GameObject.DontDestroyOnLoad(gameObject);
 		}
 		
-		banner = new ADBannerView(ADBannerView.Type.Banner, 
-		                          showOnTop? ADBannerView.Layout.Top : ADBannerView.Layout.Bottom);
 		
-		ADBannerView.onBannerWasClicked += OnBannerClicked;
-		ADBannerView.onBannerWasLoaded += OnBannerLoaded;
-		ADBannerView.onBannerFailedToLoad += OnBannerFailedToLoad;
 
 		fullscreenAd = new ADInterstitialAd();
 		ADInterstitialAd.onInterstitialWasLoaded  += OnFullscreenLoaded;
@@ -42,6 +37,7 @@ using ADInterstitialAd = UnityEngine.iOS.ADInterstitialAd;
 	{
 		//banner.visible = true;
 		Debug.Log ("KKKKKKKKKKKKKKKKK  init   ....  onBannerLoaded");
+			banner.visible = true;
 	}
 	
 	void OnBannerClicked()
@@ -71,10 +67,13 @@ using ADInterstitialAd = UnityEngine.iOS.ADInterstitialAd;
 		return fullscreenAd.loaded;
 	}
 
-	 void showBanner(){
-			if(banner!=null){
-			banner.visible = true;
-			}
+		void showBanner(ADBannerView.Layout adPosition){
+			banner = new ADBannerView(ADBannerView.Type.Banner, 
+			                          showOnTop? ADBannerView.Layout.Top : ADBannerView.Layout.Bottom);
+			
+			ADBannerView.onBannerWasClicked += OnBannerClicked;
+			ADBannerView.onBannerWasLoaded += OnBannerLoaded;
+			ADBannerView.onBannerFailedToLoad += OnBannerFailedToLoad;
 		}
 	#else
 		void Start ()
@@ -90,7 +89,7 @@ using ADInterstitialAd = UnityEngine.iOS.ADInterstitialAd;
 			return false;
 		}
 
-		void showBanner(){
+		void showBanner(SGAdPosition sgAdPosition = SGAdPosition.Bottom){
 		}
 	#endif
 
@@ -131,9 +130,29 @@ using ADInterstitialAd = UnityEngine.iOS.ADInterstitialAd;
 			return false;
 		}
 
-		public static void showBannerView(){
+		public static void showBannerView(SGAdPosition sgAdPosition = SGAdPosition.Bottom){
 			if (instance != null) {
-				instance.showBanner ();
+				switch (sgAdPosition) {
+				case SGAdPosition.Bottom:
+					instance.showBanner (ADBannerView.Layout.BottomCenter);
+					break;
+				case SGAdPosition.BottomLeft:
+					instance.showBanner (ADBannerView.Layout.BottomLeft);
+					break;
+				case SGAdPosition.BottomRight:
+					instance.showBanner (ADBannerView.Layout.BottomRight);
+					break;
+				case SGAdPosition.Top:
+					instance.showBanner (ADBannerView.Layout.TopCenter);
+					break;
+				case SGAdPosition.TopLeft:
+					instance.showBanner (ADBannerView.Layout.TopLeft);
+					break;
+				case SGAdPosition.TopRight:
+					instance.showBanner (ADBannerView.Layout.TopRight);
+					break;
+					
+				}
 			}
 		}
 	}

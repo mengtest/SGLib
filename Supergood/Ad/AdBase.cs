@@ -17,6 +17,6 @@ namespace Supergood.Unity.Ad
 		public abstract  bool isLoad();
 		public abstract  void load();
 		public abstract  void show();
-		public abstract  void showBanner();
+		public abstract  void showBanner(SGAdPosition sgAdPosition = SGAdPosition.Bottom);
 	}	
 }

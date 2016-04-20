@@ -37,7 +37,7 @@ namespace Supergood.Unity.Ad
 			});
 		}
 
-		public override void showBanner ()
+		public override void showBanner (SGAdPosition sgAdPosition = SGAdPosition.Bottom)
 		{
 		}
 	}

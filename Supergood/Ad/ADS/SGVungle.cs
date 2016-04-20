@@ -38,7 +38,7 @@ namespace Supergood.Unity.Ad
 			#endif
 		}
 
-		public override void showBanner ()
+		public override void showBanner (SGAdPosition sgAdPosition = SGAdPosition.Bottom)
 		{
 		}
 
