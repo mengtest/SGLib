@@ -81,15 +81,18 @@ using ADInterstitialAd = UnityEngine.iOS.ADInterstitialAd;
 			init ();
 		}
 
-		void ShowFullScreenAd(){
+		void ShowFullScreenAd ()
+		{
 
 		}
 		
-		bool FullScreenAdIsLoad(){
+		bool FullScreenAdIsLoad ()
+		{
 			return false;
 		}
 
-		void showBanner(SGAdPosition sgAdPosition = SGAdPosition.Bottom){
+		void showBanner (SGAdPosition sgAdPosition = SGAdPosition.Bottom)
+		{
 		}
 	#endif
 
@@ -130,7 +133,9 @@ using ADInterstitialAd = UnityEngine.iOS.ADInterstitialAd;
 			return false;
 		}
 
-		public static void showBannerView(SGAdPosition sgAdPosition = SGAdPosition.Bottom){
+		public static void showBannerView (SGAdPosition sgAdPosition = SGAdPosition.Bottom)
+		{
+			#if UNITY_IOS
 			if (instance != null) {
 				switch (sgAdPosition) {
 				case SGAdPosition.Bottom:
@@ -154,6 +159,7 @@ using ADInterstitialAd = UnityEngine.iOS.ADInterstitialAd;
 					
 				}
 			}
+#endif
 		}
 	}
 }
