@@ -32,7 +32,22 @@ namespace Supergood.Unity.Ad
 		{
 			Advertisement.Show (null, new ShowOptions { 
 				resultCallback = result => {
-					Debug.Log("ttttttttttttttt   "  +   result.ToString());
+					switch(result){
+					case ShowResult.Finished:
+						if(AdManager.AdShowSucessed!= null){
+							AdManager.AdShowSucessed();
+						}
+						break;
+//					case ShowResult.Failed:
+//						break;
+//					case ShowResult.Skipped:
+//						break;
+					default:
+						if(AdManager.AdShowFailed!= null){
+							AdManager.AdShowFailed();
+						}
+						break;
+					}
 				}
 			});
 		}

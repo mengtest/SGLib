@@ -17,6 +17,7 @@ namespace Supergood.Unity.Ad
 			#else
 
 			#endif
+			AdManager.OnEnableVungle ();
 		}
 
 		public override bool isLoad ()
@@ -40,26 +41,6 @@ namespace Supergood.Unity.Ad
 
 		public override void showBanner (SGAdPosition sgAdPosition = SGAdPosition.Bottom)
 		{
-		}
-
-		public  void OnEnableVungle ()
-		{
-			#if UNITY_IPHONE || UNITY_ANDROID
-			Vungle.onAdStartedEvent += AdManager.onAdStartedEvent;
-			Vungle.onAdEndedEvent += AdManager.onAdEndedEvent;
-			Vungle.onAdViewedEvent += AdManager.onAdViewedEvent;
-			Vungle.onCachedAdAvailableEvent += AdManager.onCachedAdAvailableEvent;
-			#endif
-		}
-		
-		public  void OnDisableVungle ()
-		{
-			#if UNITY_IPHONE || UNITY_ANDROID
-			Vungle.onAdStartedEvent -= AdManager.onAdStartedEvent;
-			Vungle.onAdEndedEvent -= AdManager.onAdEndedEvent;
-			Vungle.onAdViewedEvent -= AdManager.onAdViewedEvent;
-			Vungle.onCachedAdAvailableEvent -= AdManager.onCachedAdAvailableEvent;
-			#endif
 		}
 	}
 }

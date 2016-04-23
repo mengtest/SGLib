@@ -13,6 +13,20 @@ namespace Supergood.Unity.Ad
 		{
 			Adzones = new string[] {unitId};
 			AdColony.Configure (Application.version, platformId, Adzones);
+
+			AdColony.OnVideoStarted += AdManager.onAdStartedEvent;	
+
+			AdColony.OnVideoFinished += (isShown) => {
+				if(isShown){
+					if(AdManager.AdShowSucessed != null){
+						AdManager.AdShowSucessed();
+					}
+				}else{
+					if(AdManager.AdShowFailed!= null){
+						AdManager.AdShowFailed();
+					}
+				}
+			};
 		}
 		
 		public override bool isLoad ()

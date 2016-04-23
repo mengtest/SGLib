@@ -113,13 +113,13 @@ namespace Supergood.Unity.Ad
 			adsBannerController.ShowBanner(sgAdPosition);
 		}
 
+
 		public static void OnEnableVungle ()
 		{
 			#if UNITY_IPHONE || UNITY_ANDROID
 			Vungle.onAdStartedEvent += onAdStartedEvent;
-			Vungle.onAdEndedEvent += onAdEndedEvent;
-			Vungle.onAdViewedEvent += onAdViewedEvent;
-			Vungle.onCachedAdAvailableEvent += onCachedAdAvailableEvent;
+//			Vungle.onCachedAdAvailableEvent += onCachedAdAvailableEvent;
+			Vungle.onAdFinishedEvent +=   onVungleAdFinished;
 			#endif
 		}
 		
@@ -127,31 +127,49 @@ namespace Supergood.Unity.Ad
 		{
 			#if UNITY_IPHONE || UNITY_ANDROID
 			Vungle.onAdStartedEvent -= onAdStartedEvent;
-			Vungle.onAdEndedEvent -= onAdEndedEvent;
-			Vungle.onAdViewedEvent -= onAdViewedEvent;
-			Vungle.onCachedAdAvailableEvent -= onCachedAdAvailableEvent;
+//			Vungle.onCachedAdAvailableEvent -= onCachedAdAvailableEvent;
+			Vungle.onAdFinishedEvent -=   onVungleAdFinished;
 			#endif
 		}
 		
 		public static void onAdStartedEvent ()
 		{
-			Debug.Log ("onAdStartedEvent");
-		}
-		
-		public static void onAdEndedEvent ()
-		{
-			Debug.Log ("onAdEndedEvent");
-		}
-		
-		public static void onAdViewedEvent (double watched, double length)
-		{
-			Debug.Log ("onAdViewedEvent. watched: " + watched + ", length: " + length);
+			if (AdStartEvent != null) {
+				AdStartEvent();
+			}
 		}
 		
 		public static void onCachedAdAvailableEvent ()
 		{
-			Debug.Log ("onCachedAdAvailableEvent");
+//			Debug.Log ("onCachedAdAvailableEvent");
 		}
+
+
+		public static void onVungleAdFinished(AdFinishedEventArgs adFinishedEventArags){
+			if (adFinishedEventArags.IsCompletedView) {
+				if(AdShowSucessed != null)
+					AdShowSucessed();
+			} else {
+				if(AdShowFailed!=null){
+					AdShowFailed();
+				}
+			}
+		}
+
+//		public static void  AdShowSucessed(){
+//		}
+
+		public static void InitAdEvent(AdDelegate adShowSucessed = null,AdDelegate adShowFailed = null,AdDelegate  adStartEvent = null){
+			AdShowSucessed = adShowSucessed;
+			AdShowFailed = adShowFailed;
+			AdStartEvent = adStartEvent;
+		}
+
+
+		public static AdDelegate  AdStartEvent;
+		public static AdDelegate  AdShowFailed;
+		public static AdDelegate AdShowSucessed;
+
 
 		public static AdBase CreateAd (SGAdConfig.SGAdConfigElement config)
 		{
