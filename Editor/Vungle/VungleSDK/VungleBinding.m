@@ -55,25 +55,25 @@ UIInterfaceOrientationMask makeOrientation(NSNumber* code) {
     int i = [code intValue];
     switch( i )
     {
-        case 0:
+        case 1:
             orientationMask = UIInterfaceOrientationMaskPortrait;
             break;
-        case 1:
+        case 2:
             orientationMask = UIInterfaceOrientationMaskLandscapeLeft;
             break;
-        case 2:
+        case 3:
             orientationMask = UIInterfaceOrientationMaskLandscapeRight;
             break;
-        case 3:
+        case 4:
             orientationMask = UIInterfaceOrientationMaskPortraitUpsideDown;
             break;
-        case 4:
+        case 5:
             orientationMask = UIInterfaceOrientationMaskLandscape;
             break;
-        case 5:
+        case 6:
             orientationMask = UIInterfaceOrientationMaskAll;
             break;
-        case 6:
+        case 7:
             orientationMask = UIInterfaceOrientationMaskAllButUpsideDown;
             break;
         default:
@@ -187,7 +187,7 @@ void _vungleSetEndPoint(const char * endPoint) {
     }
 }
 
-char* MakeStringCopy (const char* string) {
+static char* MakeStringCopy (const char* string) {
     if (string == NULL) {
         return NULL;
     }

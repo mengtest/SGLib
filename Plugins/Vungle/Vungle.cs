@@ -4,15 +4,15 @@ using System.Collections;
 using System.Text;
 using System.Collections.Generic;
 
+#pragma warning disable 618
 
-
-#if UNITY_IPHONE || UNITY_ANDROID
 public class Vungle
 {
 	//Change this constant fields when a new version of the plugin or sdk was released
-	private const string PLUGIN_VERSION = "2.2.4";
+	private const string PLUGIN_VERSION = "3.1.5";
 	private const string IOS_SDK_VERSION = "3.2.0";
-	private const string ANDROID_SDK_VERSION = "3.3.3";
+	private const string WIN_SDK_VERSION = "1.1.6";
+	private const string ANDROID_SDK_VERSION = "3.3.4";
 
 	#region Events
 
@@ -94,8 +94,10 @@ public class Vungle
 			return stringBuilder.Append(PLUGIN_VERSION).Append("/iOS-").Append(IOS_SDK_VERSION).ToString();
 			#elif UNITY_ANDROID
 			return stringBuilder.Append(PLUGIN_VERSION).Append("/android-").Append(ANDROID_SDK_VERSION).ToString();
+			#elif UNITY_WSA_10_0 || UNITY_WINRT_8_1 || UNITY_METRO
+			return stringBuilder.Append(PLUGIN_VERSION).Append("/android-").Append(WIN_SDK_VERSION).ToString();
 			#else
-			return "";
+			return stringBuilder.Append(PLUGIN_VERSION).ToString();
 			#endif
 		}
 	}
@@ -113,12 +115,14 @@ public class Vungle
 
 
 	// Initializes the Vungle SDK. Pass in your Android and iOS app ID's from the Vungle web portal.
-	public static void init( string androidAppId, string iosAppId )
+	public static void init( string androidAppId, string iosAppId, string winAppId = "" )
 	{
 #if UNITY_IPHONE
 		VungleBinding.startWithAppId( iosAppId , PLUGIN_VERSION);
 #elif UNITY_ANDROID
 		VungleAndroid.init( androidAppId , PLUGIN_VERSION);
+#elif UNITY_WSA_10_0 || UNITY_WINRT_8_1 || UNITY_METRO
+        VungleWin.init(winAppId  , PLUGIN_VERSION);
 #endif
 	}
 
@@ -130,6 +134,8 @@ public class Vungle
 		VungleBinding.setSoundEnabled( isEnabled );
 #elif UNITY_ANDROID
 		VungleAndroid.setSoundEnabled( isEnabled );
+#elif UNITY_WSA_10_0 || UNITY_WINRT_8_1 || UNITY_METRO
+        VungleWin.setSoundEnabled( isEnabled );
 #endif
 	}
 
@@ -141,6 +147,8 @@ public class Vungle
 		return VungleBinding.isAdAvailable();
 #elif UNITY_ANDROID
 		return VungleAndroid.isVideoAvailable();
+#elif UNITY_WSA_10_0 || UNITY_WINRT_8_1 || UNITY_METRO
+        return VungleWin.isVideoAvailable();
 #else
 		return false;
 #endif
@@ -148,12 +156,15 @@ public class Vungle
 
 
 	// Displays an ad with the given options. The user option is only supported for incentivized ads.
+	[Obsolete("This method is deprecated. Please use playAdWithOptions( Dictionary<string,object> ) method instead.")]
 	public static void playAd( bool incentivized = false, string user = "", int orientation = 6)
 	{
 #if UNITY_IPHONE
 		VungleBinding.playAd( incentivized, user, (VungleAdOrientation)orientation);
 #elif UNITY_ANDROID
 		VungleAndroid.playAd( incentivized, user );
+#elif UNITY_WSA_10_0 || UNITY_WINRT_8_1 || UNITY_METRO
+        VungleWin.playAd( incentivized, user );
 #endif
 	}
 
@@ -164,10 +175,12 @@ public class Vungle
 		{
 			throw new ArgumentException("You can not call this method with null parameter");
 		}
-		#if UNITY_IPHONE
+#if UNITY_IPHONE
 		VungleBinding.playAdEx( options );
-		#elif UNITY_ANDROID
+#elif UNITY_ANDROID
 		VungleAndroid.playAdEx( options );
+#elif UNITY_WSA_10_0 || UNITY_WINRT_8_1 || UNITY_METRO
+        VungleWin.playAdEx( options );
 		#endif
 	}
 	
@@ -238,5 +251,3 @@ public class Vungle
 		#endif
 	}
 }
-
-#endif

@@ -3,10 +3,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+#pragma warning disable 618
+
 public class VungleManager : MonoBehaviour
 {
 	//for android we grab the infromation for OnAdFinishedEvent from two internal SDK events: onAdEnd and onVideoView.
 	private AdFinishedEventArgs adFinishedEventArgs = null;
+	private static AdFinishedEventArgs adWinFinishedEventArgs = null;
 
 	#region Constructor and Lifecycle
 
@@ -55,7 +58,66 @@ public class VungleManager : MonoBehaviour
 
 	//Fired when a Vungle ad finished and provides the entire information about this event.
 	public static event Action<AdFinishedEventArgs> OnAdFinishedEvent;
-	
+
+
+	public static void onEvent(string e, string arg) {
+		if (e == "OnAdStart") {
+			OnAdStartEvent();
+		}
+		if (e == "OnAdEnd") {
+			bool fireRightNow = adWinFinishedEventArgs != null;
+			
+			if(!fireRightNow)
+			{
+				adWinFinishedEventArgs = new AdFinishedEventArgs();
+			}
+			
+			adWinFinishedEventArgs.WasCallToActionClicked = "1".Equals (arg);
+			
+			if(fireRightNow)
+			{
+				OnAdFinishedEvent(adWinFinishedEventArgs);
+				adWinFinishedEventArgs = null;
+			}
+			
+			OnAdEndEvent();
+		}
+		if (e == "OnAdPlayableChanged") {
+			if ("1".Equals (arg))
+				OnCachedAdAvailableEvent();
+			OnAdPlayableEvent("1".Equals (arg));
+		}
+		if (e == "OnVideoView") {
+			var parts = arg.Split( new char[] { ':' } );
+			if(parts.Length == 3 )
+			{
+				double timeWatched = double.Parse( parts[1] );
+				double totalDuration = double.Parse( parts[2] );
+				
+				bool fireRightNow = adWinFinishedEventArgs != null;
+				
+				if(!fireRightNow)
+				{
+					adWinFinishedEventArgs = new AdFinishedEventArgs();
+				}
+				
+				adWinFinishedEventArgs.IsCompletedView = bool.Parse( parts[0] );
+				adWinFinishedEventArgs.TimeWatched = timeWatched;
+				adWinFinishedEventArgs.TotalDuration = totalDuration;
+				
+				if(fireRightNow)
+				{
+					OnAdFinishedEvent(adWinFinishedEventArgs);
+					adWinFinishedEventArgs = null;
+				}
+				
+				OnVideoViewEvent(timeWatched, totalDuration);
+			}
+		}
+		if (e == "Diagnostic") {
+			OnSDKLogEvent(arg);
+		}
+	}
 
 	#region Native code will call these methods
 
@@ -106,6 +168,34 @@ public class VungleManager : MonoBehaviour
 			OnVideoViewEvent(timeWatched, totalDuration);
 		}
 
+		#elif UNITY_WSA_10_0 || UNITY_WINRT_8_1 || UNITY_METRO
+		//param is not json string
+		var parts = param.Split( new char[] { '-' } );
+		if(parts.Length == 3 )
+		{
+			double timeWatched = double.Parse( parts[1] ) / 1000;
+			double totalDuration = double.Parse( parts[2] ) / 1000;
+			
+			bool fireRightNow = adFinishedEventArgs != null;
+			
+			if(!fireRightNow)
+			{
+				adFinishedEventArgs = new AdFinishedEventArgs();
+			}
+			
+			adFinishedEventArgs.IsCompletedView = bool.Parse( parts[0] );
+			adFinishedEventArgs.TimeWatched = timeWatched;
+			adFinishedEventArgs.TotalDuration = totalDuration;
+			
+			if(fireRightNow)
+			{
+				OnAdFinishedEvent(adFinishedEventArgs);
+				adFinishedEventArgs = null;
+			}
+			
+			OnVideoViewEvent(timeWatched, totalDuration);
+		}
+		
 		#elif UNITY_IPHONE
 		//param is the json string
 		Dictionary<string,object> attrs = (Dictionary<string,object>) MiniJSONV.Json.Deserialize( param );
@@ -125,7 +215,6 @@ public class VungleManager : MonoBehaviour
 
 		OnAdEndEvent();
 		OnVideoViewEvent(timeWatched,totalDuration);
-
 		#endif
 	}
 
