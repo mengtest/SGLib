@@ -15,7 +15,7 @@ public class CircleScrollPanel : SGScrollPanel
         moveRightToLeft ();
 
 
-		float temp = myscrollBar.value * (GetElementCount ()-ShowNumber) + ShowNumber/2f-0.5f;
+		float temp = scalerValue(myscrollBar.value);
 		for (int i=0; i<GetElementCount (); i++) {
 			float temp1 = Mathf.Abs(i-temp);
 
@@ -28,6 +28,10 @@ public class CircleScrollPanel : SGScrollPanel
 		}
 
     }
+
+	float scalerValue(float srocollBarValue){
+		return  srocollBarValue * (GetElementCount ()-ShowNumber) + ShowNumber/2f-0.5f;
+	}
 
     private void moveLeftToRight ()
     {
@@ -153,8 +157,6 @@ public class CircleScrollPanel : SGScrollPanel
                 myScrollList.transform.GetChild (GetElementCount () - 1).SetSiblingIndex (0);
             }
         }
-
-
         myscrollBar.value = (index - 1) * 1f / (GetElementCount () - 1);
     }
 
@@ -164,8 +166,17 @@ public class CircleScrollPanel : SGScrollPanel
         float next = (index + 1) * 1f / (GetElementCount () - 1);
         float delta = next - myscrollBar.value;
         float moveTime = 0.5f;
+
         if (endDragPosition.x < lastDragPosition.x) {
   
+			float temp = scalerValue(next);
+
+			if(temp!=((int) temp)){
+				index ++;
+				 next = (index + 1) * 1f / (GetElementCount () - 1);
+				 delta = next - myscrollBar.value;
+			}
+
             while (myscrollBar.value <next) {
                 yield return 0;
                 myscrollBar.value += delta * Time.deltaTime / moveTime;
@@ -173,6 +184,12 @@ public class CircleScrollPanel : SGScrollPanel
             index ++;
         } else {
             next = (index) * 1f / (GetElementCount () - 1);
+			float temp = scalerValue(next);
+			
+			if(temp!=((int) temp)){
+				index --;
+				next = (index) * 1f / (GetElementCount () - 1);
+			}
             delta = myscrollBar.value - next;
             while (myscrollBar.value >next) {
                 yield return 0;
