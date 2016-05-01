@@ -13,6 +13,20 @@ public class CircleScrollPanel : SGScrollPanel
         base.myUpdate ();
 //        moveLeftToRight ();
         moveRightToLeft ();
+
+
+		float temp = myscrollBar.value * (GetElementCount ()-ShowNumber) + ShowNumber/2f-0.5f;
+		for (int i=0; i<GetElementCount (); i++) {
+			float temp1 = Mathf.Abs(i-temp);
+
+			if(temp1<1){
+				float temp2 =1+ (1-temp1)*0.5f;
+				myScrollList.transform.GetChild (i).transform.localScale = new Vector3(temp2,temp2,temp2);
+			}else{
+				myScrollList.transform.GetChild (i).transform.localScale = new Vector3(1,1,1);
+			}
+		}
+
     }
 
     private void moveLeftToRight ()
@@ -70,20 +84,6 @@ public class CircleScrollPanel : SGScrollPanel
 //        PlayClickSound ();
         base.onBeginDrag (eventData);
         StopAllCoroutines ();
-    
-//        if (myscrollBar.value > (1 - 0.5f / (GetElementCount () - 1))) {
-//            for (int i=0; i<(GetElementCount ())/2; i++) {
-//                myScrollList.transform.GetChild (0).SetSiblingIndex (GetElementCount () - 1);
-//            }
-//            index = (GetElementCount () - 1) / 2;
-//            myscrollBar.value = (index) * 1f / (GetElementCount () - 1);
-//        } else if (myscrollBar.value < (0.5f / (GetElementCount () - 1))) {
-//            for (int i=0; i<(GetElementCount ())/2; i++) {
-//                myScrollList.transform.GetChild (0).SetSiblingIndex (GetElementCount () - 1);
-//            }
-//            index = (GetElementCount () - 1) / 2;
-//            myscrollBar.value = (index + 1) * 1f / (GetElementCount () - 1);
-//        }
         lastDragPosition.x = eventData.position.x;
         lastDragPosition.y = eventData.position.y;
         lastTime = Time.time;
