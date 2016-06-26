@@ -174,7 +174,10 @@ public class UIWindow : MonoBehaviour
 		if (animator != null) {
 			animator.speed = 1f / AppearTime;
 			animator.SetInteger ("state", (int)UIDisplayState.Showining);
-			StartCoroutine (Open ());
+			DelayAction delay = new DelayAction(AppearTime,null,()=>{	InAction.OnCompleteMethod ();
+				animator.SetInteger ("state", (int)UIDisplayState.Normal);});
+			delay.Play();
+//			StartCoroutine (Open ());
 		}
 	}
 
@@ -288,7 +291,11 @@ public class UIWindow : MonoBehaviour
 		if (animator != null) {
 			animator.speed = 1f / DisappearTime;
 			animator.SetInteger ("state", (int)UIDisplayState.Showouting);
-			StartCoroutine (Closed ());
+			DelayAction delay = new DelayAction(AppearTime,null,()=>{
+				animator.SetInteger ("state", (int)UIDisplayState.Disable);
+				OutAction.OnCompleteMethod ();});
+			delay.Play();
+//			StartCoroutine (Closed ());
 		}
 	}
 	
